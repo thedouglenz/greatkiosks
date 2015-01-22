@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link href='http://fonts.googleapis.com/css?family=Roboto+Slab' rel='stylesheet' type='text/css'>
+
+  <title>Great Kiosks</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+  <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
+  <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/grids-responsive-min.css">
+  <link rel="stylesheet" type="text/css" href="../static/style.css">
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+</head>
+
+<body>
+  <div class="pure-g">
+    <div class="pure-u-1" id="header-content">
+      <h2 class="dash-nav" style="display:inline; color:white;">Great Kiosks</h2>
+      {% if current_user.is_authenticated() %}
+      <a href="{{ url_for('dashboard') }}" class="dash-nav" style="color:white;text-decoration:none;"> <i class="fa fa-bar-chart"></i> dashboard</a>
+      <a href="{{ url_for('logout') }}" class="dash-nav" style="color:white;text-decoration:none;"> <i class="fa fa-sign-out"></i> logout </a>
+      <a href="#" class="app-color dash-nav" style="text-decoration:none;">{{ current_user.email }}</a>
+      {% endif %}
+    </div>
+    <div class="pure-u-1" id="main-content-container">
+      {% block content %}{% endblock %}
+    </div>
+  </div>
+
+</body>
+</html>

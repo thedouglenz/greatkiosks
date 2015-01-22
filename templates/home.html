@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+{% block content %}
+<div>
+  <div class="pure-g not-fat">
+    <div class="pure-u-1 top-of-any-page">
+      <div id="landing-page-bs">
+        <h3>Welcome to Great Kiosks</h3>
+        <p>
+          With <strong>Great Kiosks</strong>, you can create and manage as many full
+          kiosks as you wish. <strong> login </strong> to your <strong> dashboard
+          </strong> and start creating your first kiosk. Then point your kiosk
+          devices to the finished product and lock down the device so that your
+          users can explore and enjoy the content you have to share!
+        </p>
+      </div>
+    </div>
+    <div class="pure-u-1">
+      <form method="POST" action="{{ url_for('login') }}" class="pure-form pure-form-stacked">
+        <fieldset>
+          <input type="email" name="email" class="pure-input-1" placeholder="email address">
+          <input type="password" name="password" class="pure-input-1" placeholder="password">
+          <button type="submit" class="pure-button button-primary pure-input-1"> Login </button>
+        </fieldset>
+      </form>
+    </div>
+    <div class="pure-u-1" style="text-align:center;">
+      <p>Need an account?</p>
+      <a class="pure-button" href="{{ url_for('register_user') }}">Register</a>
+    </div>
+  </div>
+</div>
+{% endblock %}
